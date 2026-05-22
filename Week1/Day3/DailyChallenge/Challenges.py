@@ -1,10 +1,11 @@
-class Farm:
+#Step 1,2
+class Farm: 
     def __init__(self, farm_name):
         self.name = farm_name
         self.animals = {}
 
     def add_animal(self, animal_type=None, count=1, **kwargs):
-        # Single animal (positional) or default usage
+
         if animal_type:
             if animal_type in self.animals:
                 self.animals[animal_type] += count
@@ -33,8 +34,8 @@ class Farm:
         # Pluralise if count > 1
         pluralised = [
             f"{a}s" if self.animals[a] > 1 else a
-            for a in animal_types
-        ]
+            for a in animal_types]
+        
         # Join: "cows, goats and sheeps"
         if len(pluralised) > 1:
             animals_str = ", ".join(pluralised[:-1]) + " and " + pluralised[-1]
@@ -43,7 +44,7 @@ class Farm:
         return f"{self.name}'s farm has {animals_str}."
 
 
-# ── Standard usage ──────────────────────────────────────────────────────────
+#Standard usage 
 macdonald = Farm("McDonald")
 macdonald.add_animal('cow', 5)
 macdonald.add_animal('sheep')
@@ -51,13 +52,13 @@ macdonald.add_animal('sheep')
 macdonald.add_animal('goat', 12)
 print(macdonald.get_info())
 
-# ── Bonus Step 8: **kwargs multi-animal shorthand ───────────────────────────
+#Bonus Step 8
 print("\n--- Bonus: adding via **kwargs ---")
 old_farm = Farm("Old MacDonald")
 old_farm.add_animal(cow=3, pig=7, horse=2, chicken=14)
 print(old_farm.get_info())
 
-# ── Bonus Steps 6 & 7 ──────────────────────────────────────────────────────
+#Bonus
 print("\n--- get_animal_types() ---")
 print(old_farm.get_animal_types())
 

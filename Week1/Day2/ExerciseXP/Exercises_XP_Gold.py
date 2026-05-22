@@ -2,11 +2,11 @@
 
 # Create the birthdays dictionary 
 birthdays = {
-    "Koffi":   "1995/03/15",
-    "Bob":     "1997/07/22",
-    "Charlie": "1994/11/08",
-    "Diane":   "1998/01/30",
-    "Evlyne":     "2000/06/17"
+    "Martine":   "1995/03/15",
+    "Ishann":     "1997/07/22",
+    "Boderah": "1994/11/08",
+    "Michelle":   "1998/01/30",
+    "Mihya":     "2000/06/17"
 }
 
 # Print a welcome message
@@ -24,17 +24,20 @@ else:
     print(f"Sorry, {name} is not in the list.")
 
 
-    #EXERCICE 2
+
+
+
+#EXERCICE 2
 
 birthdays = {
-    "Alice":   "January 14",
-    "Bob":     "March 3",
-    "Charlie": "July 22",
-    "Diana":   "October 9",
-    "Eve":     "December 31",
+    "Martine":   "January 14",
+    "Ishann":     "March 3",
+    "Boderah": "July 22",
+    "Michelle":   "October 9",
+    "Mihya":     "December 31",
 }
 
-# ── Display all names ────────────────────────────────────────────────────────
+#Display all names 
 print("Birthday Book")
 print("─" * 30)
 print("People in our records:")
@@ -42,27 +45,29 @@ for name in birthdays:
     print(f"  • {name}")
 print("─" * 30)
 
-# ── Ask for a name and look it up ────────────────────────────────────────────
+#Ask for a name and look it up 
 person = input("\nEnter a person's name: ").strip()
 
 if person in birthdays:
-    print(f"🎉 {person}'s birthday is on {birthdays[person]}.")
+    print(f"{person}'s birthday is on {birthdays[person]}.")
 else:
     print(f"Sorry, we don't have the birthday information for {person}.")
 
 
-    #EXERCICE 3
 
-    names = ['Samus', 'Cortana', 'V', 'Link', 'Mario', 'Cortana', 'Samus']
 
-# ── Display available names ──────────────────────────────────────────────────
-print("🎮 Character Roster:")
+#EXERCICE 3
+
+names = ['Samus', 'Cortana', 'V', 'Link', 'Mario', 'Cortana', 'Samus']
+
+#Display available names 
+print("Character Roster:")
 print("─" * 30)
 for i, name in enumerate(names):
     print(f"  [{i}] {name}")
 print("─" * 30)
 
-# ── Ask for input and find index ─────────────────────────────────────────────
+#Ask for input and find index 
 user_input = input("\nEnter a character name: ").strip()
 
 if user_input in names:
@@ -72,9 +77,11 @@ else:
     print(f"'{user_input}' is not in the roster.")
 
 
-    #EXERCICE 4
 
-    import random
+
+#Exercice 4
+
+import random
 
 def throw_dice():
     return random.randint(1, 6)
@@ -94,12 +101,10 @@ def main():
     total   = sum(results)
     average = total / len(results)
 
-    print(f"🎲 Results after 100 doubles:")
+    print(f"Results after 100 doubles:")
     print(f"   Total throws          : {total}")
     print(f"   Average throws/double : {average:.2f}")
     print(f"   Fastest double        : {min(results)} throw(s)")
     print(f"   Slowest double        : {max(results)} throw(s)")
 
 main()
-
-

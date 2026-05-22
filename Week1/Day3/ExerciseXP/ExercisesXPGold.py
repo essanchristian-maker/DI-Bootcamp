@@ -20,14 +20,14 @@ class Circle:
         )
 
 
-# ── Test with default radius ────────────────────────────────────────────────
+#Test with default radius 
 c1 = Circle()
 print("=== Circle (default radius = 1.0) ===")
 c1.definition()
 print(f"Perimeter : {c1.perimeter():.4f}")
 print(f"Area      : {c1.area():.4f}")
 
-# ── Test with a custom radius ────────────────────────────────────────────────
+#Test with a custom radius 
 print("\n=== Circle (radius = 7) ===")
 c2 = Circle(7)
 c2.definition()
@@ -53,7 +53,7 @@ class MyList:
         return [random.randint(1, 100) for _ in self.letters]
 
 
-# ── Test ────────────────────────────────────────────────────────────────────
+#Test 
 my_list = MyList(['d', 'a', 'c', 'b', 'e', 'f'])
 
 print(f"Original : {my_list.letters}")
@@ -75,55 +75,55 @@ class MenuManager:
             {"name": "Beef Bourguignon",  "price": 25, "spice": "B", "gluten": True },
         ]
 
-    # ── Helper: find a dish by name (case-insensitive) ──────────────────────
+    #Helper: find a dish by name (case-insensitive)
     def _find(self, name):
         for dish in self.menu:
             if dish["name"].lower() == name.lower():
                 return dish
         return None
 
-    # ── Helper: display the full menu ───────────────────────────────────────
+    #Helper: display the full menu
     def display_menu(self):
         spice_label = {"A": "Not spicy", "B": "A little spicy", "C": "Very spicy"}
         print(f"\n{'─'*55}")
         print(f"  {'DISH':<22} {'PRICE':>6}  {'SPICE':<16} {'GLUTEN'}")
         print(f"{'─'*55}")
         for dish in self.menu:
-            gluten = "✅ Yes" if dish["gluten"] else "❌ No"
+            gluten = " Yes" if dish["gluten"] else " No"
             spice  = spice_label[dish["spice"]]
             print(f"  {dish['name']:<22} ${dish['price']:>5}  {spice:<16} {gluten}")
         print(f"{'─'*55}\n")
 
-    # ── Add ─────────────────────────────────────────────────────────────────
+    #Add 
     def add_item(self, name, price, spice, gluten):
         if self._find(name):
-            print(f"⚠️  '{name}' is already on the menu. Use update_item() to modify it.")
+            print(f" '{name}' is already on the menu. Use update_item() to modify it.")
             return
         self.menu.append({"name": name, "price": price, "spice": spice, "gluten": gluten})
-        print(f"✅ '{name}' has been added to the menu.")
+        print(f"'{name}' has been added to the menu.")
 
-    # ── Update ──────────────────────────────────────────────────────────────
+    #Update 
     def update_item(self, name, price, spice, gluten):
         dish = self._find(name)
         if not dish:
-            print(f"❌ '{name}' is not on the menu.")
+            print(f"'{name}' is not on the menu.")
             return
         dish["price"] = price
         dish["spice"] = spice
         dish["gluten"] = gluten
-        print(f"✏️  '{name}' has been updated.")
+        print(f"'{name}' has been updated.")
 
-    # ── Remove ──────────────────────────────────────────────────────────────
+    #Remove 
     def remove_item(self, name):
         dish = self._find(name)
         if not dish:
-            print(f"❌ '{name}' is not on the menu.")
+            print(f" '{name}' is not on the menu.")
             return
         self.menu.remove(dish)
-        print(f"🗑️  '{name}' has been removed from the menu.")
+        print(f"'{name}' has been removed from the menu.")
 
 
-# ── Test ─────────────────────────────────────────────────────────────────────
+#Test
 manager = MenuManager()
 
 print("=== Initial Menu ===")
@@ -131,15 +131,15 @@ manager.display_menu()
 
 print("=== Add Items ===")
 manager.add_item("Pasta", 14, "A", True)
-manager.add_item("Soup", 10, "B", False)    # duplicate guard
+manager.add_item("Soup", 10, "B", False)    
 manager.display_menu()
 
 print("=== Update Item ===")
-manager.update_item("Salad", 20, "A", False)     # price bump
-manager.update_item("Sushi", 22, "A", False)     # not found
+manager.update_item("Salad", 20, "A", False)     
+manager.update_item("Sushi", 22, "A", False)     
 manager.display_menu()
 
 print("=== Remove Item ===")
 manager.remove_item("French Fries")
-manager.remove_item("Pizza")                     # not found
+manager.remove_item("Pizza")                     
 manager.display_menu()

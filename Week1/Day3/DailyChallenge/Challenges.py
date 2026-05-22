@@ -1,4 +1,4 @@
-#Step 1,2
+#Step
 class Farm: 
     def __init__(self, farm_name):
         self.name = farm_name

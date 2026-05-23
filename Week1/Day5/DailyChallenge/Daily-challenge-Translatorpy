@@ -1,0 +1,14 @@
+from deep_translator import GoogleTranslator  #i have a orror when i install pip install googletrans==4.0.0-rc1 with my python version
+
+# Liste de mots français
+french_words = ["Bonjour", "Au revoir", "Bienvenue", "A bientôt"]
+
+# Traduction fr → en
+translator = GoogleTranslator(source="fr", target="en")
+
+translations = {
+    word: translator.translate(word)
+    for word in french_words
+}
+
+print(translations)
